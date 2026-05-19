@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Сімейне меню</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">🍽 Сімейне меню</div>
+    <nav class="tabs">
+      <button class="tab active" data-tab="planner">Планувальник</button>
+      <button class="tab" data-tab="grocery">Список покупок</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- PLANNER TAB -->
+  <section class="tab-content active" id="planner">
+    <div class="week-grid">
+      <!-- Days will be injected by JS -->
+    </div>
+  </section>
+
+  <!-- GROCERY TAB -->
+  <section class="tab-content" id="grocery">
+    <div class="grocery-wrapper">
+      <div class="grocery-header">
+        <h2>Список продуктів на тиждень</h2>
+        <button class="btn-outline" id="clearGrocery">Очистити</button>
+        <button class="btn-primary" id="generateGrocery">Згенерувати з меню</button>
+      </div>
+      <div class="grocery-columns">
+        <div class="grocery-category" id="cat-produce">
+          <h3>🥦 Овочі та фрукти</h3>
+          <ul class="grocery-list" id="list-produce"></ul>
+          <input class="add-item" placeholder="+ додати..." data-cat="produce" />
+        </div>
+        <div class="grocery-category" id="cat-protein">
+          <h3>🥩 М'ясо та риба</h3>
+          <ul class="grocery-list" id="list-protein"></ul>
+          <input class="add-item" placeholder="+ додати..." data-cat="protein" />
+        </div>
+        <div class="grocery-category" id="cat-dairy">
+          <h3>🥛 Молочні</h3>
+          <ul class="grocery-list" id="list-dairy"></ul>
+          <input class="add-item" placeholder="+ додати..." data-cat="dairy" />
+        </div>
+        <div class="grocery-category" id="cat-grains">
+          <h3>🌾 Крупи та хліб</h3>
+          <ul class="grocery-list" id="list-grains"></ul>
+          <input class="add-item" placeholder="+ додати..." data-cat="grains" />
+        </div>
+        <div class="grocery-category" id="cat-other">
+          <h3>🧂 Інше</h3>
+          <ul class="grocery-list" id="list-other"></ul>
+          <input class="add-item" placeholder="+ додати..." data-cat="other" />
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- MEAL MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <span id="modalTitle">Сніданок — Понеділок</span>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <label>Страва</label>
+      <input type="text" id="mealName" placeholder="Наприклад: Вівсяна каша з ягодами" />
+      <label>Рецепт / нотатки</label>
+      <textarea id="mealNotes" placeholder="Інгредієнти, час приготування..."></textarea>
+      <label>Інгредієнти (через кому, потраплять до списку покупок)</label>
+      <input type="text" id="mealIngredients" placeholder="молоко, вівсянка, ягоди" />
+    </div>
+    <div class="modal-footer">
+      <button class="btn-outline" id="modalDelete">Видалити</button>
+      <button class="btn-primary" id="modalSave">Зберегти</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
