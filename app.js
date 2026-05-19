@@ -40,7 +40,7 @@ function buildWeekGrid() {
   DAYS.forEach((day, i) => {
     const date = new Date(monday);
     date.setDate(monday.getDate() + i);
-    const dateStr = date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' });
+    const dateStr = date.toLocaleDateString('uk-UA', { day: 'numeric', month: 'short' });
 
     const col = document.createElement('div');
     col.className = 'day-col';
