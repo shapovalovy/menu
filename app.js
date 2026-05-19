@@ -22,6 +22,9 @@ function init() {
   bindEvents();
 }
 
+const UA_MONTHS = ['січ','лют','бер','кві','трав','чер','лип','сер','вер','жов','лис','гру'];
+function formatDate(d) { return `${d.getDate()} ${UA_MONTHS[d.getMonth()]}`; }
+
 function getMonday() {
   const d = new Date();
   const day = d.getDay();
@@ -40,7 +43,7 @@ function buildWeekGrid() {
   DAYS.forEach((day, i) => {
     const date = new Date(monday);
     date.setDate(monday.getDate() + i);
-    const dateStr = date.toLocaleDateString('uk-UA', { day: 'numeric', month: 'short' });
+    const dateStr = formatDate(date);
 
     const col = document.createElement('div');
     col.className = 'day-col';
